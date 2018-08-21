@@ -1,4 +1,4 @@
-var globalData = {
+const globalData = {
   initialArray: [{name: "John Snow", age: 18},
                   {name: "Daenerys Targarien", age: 10},
                   {name: "Brandon Stark", age: 35},
@@ -16,13 +16,13 @@ var globalData = {
 
 // Main variables
 globalData.resultArray = globalData.initialArray.slice();
-var initialArrayContainer = document.getElementById("initial-array-container");
-var resultContainer = document.getElementById("result-container");
-var tabButtons = document.querySelectorAll("#tab-buttons-container>span");
-var activeTabs = document.getElementsByClassName("active");
-var activeTabId = document.querySelector("#tab-buttons-container .active").getAttribute("data-array-method");
-var activeTabContent = document.querySelector("div[data-array-method=" + activeTabId + "]");
-var executeButton = document.getElementsByClassName("execute-btn");
+const initialArrayContainer = document.getElementById("initial-array-container");
+const resultContainer = document.getElementById("result-container");
+const tabButtons = document.querySelectorAll("#tab-buttons-container>span");
+const activeTabs = document.getElementsByClassName("active");
+let activeTabId = document.querySelector("#tab-buttons-container .active").getAttribute("data-array-method");
+let activeTabContent = document.querySelector("div[data-array-method=" + activeTabId + "]");
+const executeButton = document.getElementsByClassName("execute-btn");
 
 function changeTab(tab) {
     globalData.selectedMethod = tab;
@@ -30,8 +30,8 @@ function changeTab(tab) {
 
 const arrayMethods = {
   push: function() {
-    var pushName = document.getElementById("push-name").value;
-    var pushAge = document.getElementById("push-age").value;
+    const pushName = document.getElementById("push-name").value;
+    const pushAge = document.getElementById("push-age").value;
     globalData.resultArray.push({name: pushName, age: pushAge});
     displayCharacters(globalData.resultArray, resultContainer);
   },
@@ -44,8 +44,8 @@ const arrayMethods = {
 
 
   filter: function() {
-    var filterName = document.getElementById("filter-name").value;
-    var filteredData = globalData.resultArray.filter(function(character) {
+    const filterName = document.getElementById("filter-name").value;
+    const filteredData = globalData.resultArray.filter(function(character) {
       if (character.name.includes(filterName)) {
         return character
       }
@@ -55,10 +55,10 @@ const arrayMethods = {
 
 
   find: function() { // Не работает !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    var findAge = Number(document.getElementById("find-age").value);
+    const findAge = Number(document.getElementById("find-age").value);
     console.log(findAge);
-    var findData = globalData.initialArray.find(function( currentValue ) {
-      if (currentValue.age == findAge) {
+    const findData = globalData.initialArray.find(function( currentValue ) {
+      if (currentValue.age === findAge) {
         console.log(currentValue);
         return currentValue;
       }
@@ -70,13 +70,13 @@ const arrayMethods = {
 
 
   sort: function() {
-    var sortField = document.getElementById("sort-field").value;
-    if (sortField == "Age") {
+    const sortField = document.getElementById("sort-field").value;
+    if (sortField === "Age") {
       globalData.resultArray.sort(function (a, b) {
         if (a.age > b.age) return 1;
         if (a.age < b.age) return -1;
       });
-    } else if (sortField == "Name") {
+    } else if (sortField === "Name") {
         globalData.resultArray.sort(function (a, b) {
           if (a.name > b.name) return 1;
           if (a.name < b.name) return -1;
@@ -87,7 +87,7 @@ const arrayMethods = {
 
 
   map: function() {
-    var mapAge = Number(document.getElementById("map-age").value);
+    const mapAge = Number(document.getElementById("map-age").value);
     globalData.resultArray.map(function(character) {
       character.age += mapAge;
       return character;
@@ -97,29 +97,29 @@ const arrayMethods = {
 
 
   reduce: function() {
-    var reduceName = document.getElementById("reduce-name").value;
-    var filteredData = globalData.resultArray.filter(function(character) {
+    const reduceName = document.getElementById("reduce-name").value;
+    const filteredData = globalData.resultArray.filter(function(character) {
       if (character.name.includes(reduceName)) {
         return character
       }
     });
 
-    var sumAge = filteredData.reduce(function(sum, character) {
+    const sumAge = filteredData.reduce(function(sum, character) {
       return sum + character.age;
     }, 0);
 
-    var averageAge = sumAge / filteredData.length;
+    const averageAge = sumAge / filteredData.length;
     displayCharacters(averageAge, resultContainer);
   },
 
 
   indexOf: function() {
-    var namesArr = globalData.resultArray.map(function(character) {
+    const namesArr = globalData.resultArray.map(function(character) {
       return character.name;
     });
 
-    var indexOfInputName = document.getElementById("index-of-name").value;
-    var index = namesArr.indexOf(indexOfInputName);
+    const indexOfInputName = document.getElementById("index-of-name").value;
+    const index = namesArr.indexOf(indexOfInputName);
     displayCharacters(index, resultContainer);
   },
 
@@ -137,31 +137,31 @@ const arrayMethods = {
 
 
   lastIndexOf: function() {
-    var agesArr = globalData.resultArray.map(function(character) {
+    const agesArr = globalData.resultArray.map(function(character) {
       return character.age;
     });
 
-    var indexOfInputAge = Number(document.getElementById("lastIndexOf-age").value);
-    var index = agesArr.lastIndexOf(indexOfInputAge);
+    const indexOfInputAge = Number(document.getElementById("lastIndexOf-age").value);
+    const index = agesArr.lastIndexOf(indexOfInputAge);
     displayCharacters(index, resultContainer);
   },
 
 
   concat: function() {
-    var concatJson = document.getElementById("concat-json").value;
-    var concatData = JSON.parse(concatJson);
-    var concatResult = globalData.resultArray.concat(concatData);
+    const concatJson = document.getElementById("concat-json").value;
+    const concatData = JSON.parse(concatJson);
+    const concatResult = globalData.resultArray.concat(concatData);
     displayCharacters(concatResult, resultContainer);
   },
 
 
   join: function() {
-    var namesArr = globalData.resultArray.map(function(character) {
+    const namesArr = globalData.resultArray.map(function(character) {
       return character.name;
     });
 
-    var joinDelimiter = document.getElementById("join-delimiter").value;
-    var joinResult = namesArr.join(joinDelimiter);
+    const joinDelimiter = document.getElementById("join-delimiter").value;
+    const joinResult = namesArr.join(joinDelimiter);
     displayCharacters(joinResult, resultContainer);
   },
 
@@ -173,17 +173,17 @@ const arrayMethods = {
 
 
   unshift: function() {
-    var unshiftName = document.getElementById("unshift-name").value;
-    var unshiftAge = document.getElementById("unshift-age").value;
+    const unshiftName = document.getElementById("unshift-name").value;
+    const unshiftAge = document.getElementById("unshift-age").value;
     globalData.resultArray.unshift({name: unshiftName, age: unshiftAge});
     displayCharacters(globalData.resultArray, resultContainer);
   },
 
 
   slice: function() {
-    var sliceStartIndex = Number(document.getElementById("slice-start-index").value);
-    var sliceUpToIndex = Number(document.getElementById("slice-up-to-index").value);
-    var sliceResult = globalData.resultArray.slice(sliceStartIndex, sliceUpToIndex);
+    const sliceStartIndex = Number(document.getElementById("slice-start-index").value);
+    const sliceUpToIndex = Number(document.getElementById("slice-up-to-index").value);
+    const sliceResult = globalData.resultArray.slice(sliceStartIndex, sliceUpToIndex);
     displayCharacters(sliceResult, resultContainer);
   },
 
@@ -202,32 +202,32 @@ const arrayMethods = {
 
 
   every: function() {
-    var everyAge = document.getElementById("every-age").value;
-    var everyResult = globalData.resultArray.every(function(character) {
+    const everyAge = document.getElementById("every-age").value;
+    const everyResult = globalData.resultArray.every(function(character) {
       return character.age >= everyAge;
-    })
+    });
     displayCharacters(everyResult, resultContainer);
   },
 
 
   some: function() {
-    var someName = document.getElementById("some-name").value;
-    var someResult = globalData.resultArray.some(function(character) {
+    const someName = document.getElementById("some-name").value;
+    const someResult = globalData.resultArray.some(function(character) {
       return character.name.includes(someName);
-    })
+    });
     displayCharacters(someResult, resultContainer);
   },
 
 
   reduceRight: function() {
-    var reduceRightAge = Number(document.getElementById("reduce-right-age").value);
-    var filteredData = globalData.resultArray.filter(function(character) {
+    const reduceRightAge = Number(document.getElementById("reduce-right-age").value);
+    const filteredData = globalData.resultArray.filter(function(character) {
       if (character.age <= reduceRightAge) {
         return character
       }
     });
 
-    var maxAge = 0;
+    let maxAge = 0;
     filteredData.reduceRight(function(previousValue, currentValue, index){
       if (currentValue.age > maxAge) {
         maxAge = currentValue.age;
@@ -239,10 +239,10 @@ const arrayMethods = {
 
 
   findIndex: function() {
-    var findIndexName = document.getElementById("find-index-name").value;
-    var index = globalData.resultArray.findIndex(function(character) {
+    const findIndexName = document.getElementById("find-index-name").value;
+    const index = globalData.resultArray.findIndex(function(character) {
       return character.name.includes(findIndexName);
     });
     displayCharacters(index, resultContainer);
   }
-}
+};
