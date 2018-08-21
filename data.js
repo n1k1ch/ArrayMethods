@@ -57,13 +57,15 @@ const arrayMethods = {
   find: function() { // Не работает !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     var findAge = Number(document.getElementById("find-age").value);
     console.log(findAge);
-    var findData = globalData.resultArray.find(function( currentValue ) {
+    var findData = globalData.initialArray.find(function( currentValue ) {
       if (currentValue.age == findAge) {
         console.log(currentValue);
         return currentValue;
       }
     });
-    displayCharacters(findData, resultContainer);
+
+    globalData.resultArray = findData !== undefined ? [findData] : [];
+    displayCharacters(globalData.resultArray, resultContainer);
   },
 
 
