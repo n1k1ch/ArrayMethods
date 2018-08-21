@@ -6,107 +6,133 @@
 </head>
 <body>
 	<div id="main">
-		<div id="initial-array-container">
+		<div id="initial-array">
 			<h2>Initial Array</h2>
+			<div id="initial-array-container"></div>
 		</div>
 		<div id="tab-nav">
 			<h2>Tab Navigator</h2>
 			<div id="tab-buttons-container">
-				<div href="#tab-concat">concat</div>
-				<div href="#tab-join">join</div>
-				<div class="active" href="#tab-push">push</div>
-				<div href="#tab-pop">pop</div>
-				<div href="#tab-shift">shift</div>
-				<div href="#tab-unshift">unshift</div>
-				<div href="#tab-slice">slice</div>
-				<div href="#tab-splice">splice</div>
-				<div href="#tab-reverse">reverse</div>
-				<div href="#tab-indexOf">indexOf</div>
-				<div href="#tab-lastIndexOf">lastIndexOf</div>
-				<div href="#tab-forEach">forEach</div>
-				<div href="#tab-map">map</div>
-				<div href="#tab-filter">filter</div>
-				<div href="#tab-every">every</div>
-				<div href="#tab-some">some</div>
-				<div href="#tab-reduce">reduce</div>
+				<span class="tab-button active" data-array-method="push">push</span>
+				<span class="tab-button" data-array-method="pop">pop</span>
+				<span class="tab-button" data-array-method="filter">filter</span>
+				<span class="tab-button" data-array-method="find">find</span>
+				<span class="tab-button" data-array-method="sort">sort</span>
+				<span class="tab-button" data-array-method="map">map</span>
+				<span class="tab-button" data-array-method="reduce">reduce</span>
+				<span class="tab-button" data-array-method="indexOf">indexOf</span>
+				<span class="tab-button" data-array-method="splice">splice</span>
+				<span class="tab-button" data-array-method="lastIndexOf">lastIndexOf</span>
+				<span class="tab-button" data-array-method="concat">concat</span>
+				<span class="tab-button" data-array-method="join">join</span>
+				<span class="tab-button" data-array-method="shift">shift</span>
+				<span class="tab-button" data-array-method="unshift">unshift</span>
+				<span class="tab-button" data-array-method="slice">slice</span>
+				<span class="tab-button" data-array-method="reverse">reverse</span>
+				<span class="tab-button" data-array-method="forEach">forEach</span>
+				<span class="tab-button" data-array-method="every">every</span>
+				<span class="tab-button" data-array-method="some">some</span>
+				<span class="tab-button" data-array-method="reduceRight">reduceRight</span>
+				<span class="tab-button" data-array-method="findIndex">findIndex</span>
 			</div>
 		</div>
-		<div id="tab-content">
+		<div id="content">
 			<h2>Tab Content</h2>
-			<div id="tab-concat">
-				<p>It's concat tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-join">
-				<p>It's join tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-push">
-				<input id="push-name" type="text" placeholder="Name">
-				<input id="push-age" type="text" placeholder="Age">
-				<button>Execute</button>
-			</div>
-			<div id="tab-pop">
-				<p>It's pop tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-shift">
-				<p>It's shift tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-unshift">
-				<p>It's unshift tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-slice">
-				<p>It's slice tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-splice">
-				<p>It's splice tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-reverse">
-				<p>It's reverse tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-indexOf">
-				<p>It's indexOf tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-lastIndexOf">
-				<p>It's lastIndexOf tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-forEach">
-				<p>It's forEach tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-map">
-				<p>It's map tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-filter">
-				<p>It's filter tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-every">
-				<p>It's every tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-some">
-				<p>It's some tab!</p>
-				<button>Execute</button>
-			</div>
-			<div id="tab-reduce">
-				<p>It's reduce tab!</p>
-				<button>Execute</button>
+			<div id="tab-contents">
+				<div class="tab-content" data-array-method="push">
+					<input id="push-name" type="text" placeholder="Name">
+					<input id="push-age" type="text" placeholder="Age">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="pop">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="filter">
+					<input id="filter-name" type="text" placeholder="Name">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="find">
+					<input id="find-age" type="text" placeholder="Age">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="sort">
+					<input id="sort-field" type="text" placeholder="Name/Age">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="map">
+					<input id="map-age" type="number" placeholder="Increase age by...">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="reduce">
+					<input id="reduce-name" type="text" placeholder="Name">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="indexOf">
+					<input id="index-of-name" type="text" placeholder="Name">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="splice">
+					<input id="splice-index" type="number" placeholder="Index">
+					<input id="splice-delete-count" type="number" placeholder="Number of elements to delete">
+					<input id="splice-name" type="text" placeholder="Name">
+					<input id="splice-age" type="number" placeholder="Age">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="lastIndexOf">
+					<input id="lastIndexOf-age" type="text" placeholder="Age">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="concat">
+					<input id="concat-json" type="textarea" placeholder="JSON array">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="join">
+					<input id="join-delimiter" type="text" placeholder="Delimiter">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="shift">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="unshift">
+					<input id="unshift-name" type="text" placeholder="Name">
+					<input id="unshift-age" type="text" placeholder="Age">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="slice">
+					<input id="slice-start-index" type="number" placeholder="Start index">
+					<input id="slice-up-to-index" type="number" placeholder="'Up to' index">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="reverse">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="forEach">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="every">
+					<input id="every-age" type="number" placeholder="Age">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="some">
+					<input id="some-name" type="text" placeholder="Name">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="reduceRight">
+					<input id="reduce-right-age" type="text" placeholder="Age less, then...">
+					<button class="execute-btn">Execute</button>
+				</div>
+				<div class="tab-content" data-array-method="findIndex">
+					<input id="find-index-name" type="text" placeholder="Name">
+					<button class="execute-btn">Execute</button>
+				</div>
 			</div>
 		</div>
 		<div id="result">
 			<h2>Result</h2>
+			<div id="result-container"></div>
 		</div>
 	</div>
-	<script src="main.js"></script>
+	<script src="data.js"></script>
+	<script src="dom.js"></script>
 </body>
 </html>

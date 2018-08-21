@@ -1,3 +1,6 @@
+html{
+	font:  16px/20px Arial, Helvetica, sans-serif;
+}
 #main{
   margin: 0 auto;
   max-width: 1100px;
@@ -9,13 +12,17 @@
 }
 #initial-array-container,
 #tab-buttons-container,
-#result{
+#result-container{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+h2{
+  margin: 0;
+  font-size: 20px;
+}
 .character-card,
-#tab-buttons-container>div{
+#tab-buttons-container>span{
   width: 15%;
   margin-top: 20px;
   background-color: #dadada;
@@ -25,39 +32,45 @@
   border-radius: 7px;
   padding-left: 3%;
 }
-#tab-buttons-container>div{
-  width: 10%;
+#tab-buttons-container>span{
+  width: 12.5%;
+  text-align: center;
+  padding: 5px 0;
 }
-#tab-buttons-container>div:hover{
+#tab-buttons-container>span:hover{
   cursor: pointer;
 }
 #tab-nav .active{
   font-weight: bold;
 }
-#tab-content>div{
+.tab-content{
   display: flex;
   flex-direction: column;
 }
-#tab-content input{
+#tab-contents input{
+  width: 40%;
   border: 1px solid #828282;
   outline: none;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
+  margin-top: 15px;
   padding: 5px;
 }
-#push-name{
-  width: 50%;
-}
-#push-age{
+#tab-contents input[type=textarea]{
   width: 30%;
+  height: 200px;
 }
 button{
   width: 20%;
+  margin-top: 15px;
   background-color: #20c3ff;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   border-radius: 7px;
   padding: 10px;
   border: none;
+}
+button:focus{
+  outline: none;
 }
