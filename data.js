@@ -88,9 +88,11 @@ const arrayMethods = {
 
   map: function() {
     const mapAge = Number(document.getElementById("map-age").value);
-    globalData.resultArray.map(function(character) {
-      character.age += mapAge;
-      return character;
+    globalData.resultArray = globalData.initialArray.map(function(character) {
+      return {
+        name: character.name,
+        age: character.age + mapAge
+      };
     });
     displayCharacters(globalData.resultArray, resultContainer);
   },
